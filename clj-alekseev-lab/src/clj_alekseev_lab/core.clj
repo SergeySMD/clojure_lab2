@@ -28,12 +28,12 @@
     ;; отправлять в канал для записи значение :timeout (Алексеев
     (let [input-channel (chan 10) output-channel (chan 10)]
         (timeout-translator input-channel output-channel)
-        (>!! input-channel 5)
-        (Thread/sleep 1500)
-        (>!! input-channel 6)
         (>!! input-channel 1)
         (Thread/sleep 1500)
-        (>!! input-channel 9)
+        (>!! input-channel 3)
+        (>!! input-channel 4)
+        (Thread/sleep 1500)
+        (>!! input-channel 6)
         (close! input-channel)
 
         (channel-to-print output-channel)))
